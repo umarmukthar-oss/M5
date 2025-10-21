@@ -9,12 +9,23 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int main() {
+    float a = 23.65;
+    float *p = &a;
+    *p = 25;
+    printf("%.2f", a);
+    return 0;
+}
+```
 
 ## OUTPUT:
  	
 
 
-
+![alt text](21.png)
 
 
 
@@ -45,7 +56,24 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int prod(int n) {
+    if (n == 1)
+        return 1;
+    return n * prod(n - 1);
+}
+
+int main() {
+    int r = prod(12);
+    printf("Product of first 12 natural numbers = %d", r);
+    return 0;
+}
+```
 ## OUTPUT:
+![alt text](22.png)
+
          		
 ## RESULT:
 
@@ -68,12 +96,35 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int main() {
+    int a[10][10], r, c, i, j, s;
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &r, &c);
+
+    printf("Enter elements:\n");     
+    for (i = 0; i < r; i++)
+        for (j = 0; j < c; j++)
+            scanf("%d", &a[i][j]);
+
+    for (i = 0; i < r; i++) {
+        s = 0;
+        for (j = 0; j < c; j++)
+            s += a[i][j];
+        printf("Sum of row %d = %d\n", i + 1, s);
+    }
+
+    return 0;
+}
+```
 
 
 
 ## OUTPUT
 
-
+![alt text](23.png)
  
  
 
@@ -96,10 +147,32 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char s[100];
+    int n,i,j;
+    int index =0;
+    scanf("%s",s);
+    scanf("%d",&n);
+    int len=strlen(s);
+    printf("  ");
+    for(i=0;i<=n;i++){
+        for(j=i;j<n;j++){
+            printf(" ");
+        }
+        for(j=1;j<=i+1;j++){
+            printf("%c ",s[index%len]);
+            index++;
+        }printf("\n  ");
+    }return 0;
+}
+```
 
 
  ## OUTPUT
-
+![alt text](24.png)
  
 
 ## RESULT
@@ -108,7 +181,7 @@ Thus the C program to String process executed successfully
  
 
  
-.
+
 
 
 
@@ -132,9 +205,26 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    int a[6], *p, i;
+    p = a;
+    printf("Enter 6 integers:\n");
+    for (i = 0; i < 6; i++)
+        scanf("%d", p + i);
+
+    printf("Array elements are:\n");
+    for (i = 0; i < 6; i++)
+        printf("%d ", *(p + i));
+
+    return 0;
+}
+```
 
 ## OUTPUT
-
+![alt text](25.png)
  
 
 ## RESULT
